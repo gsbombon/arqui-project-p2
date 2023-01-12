@@ -578,7 +578,7 @@ namespace prj_architecture_p2.DAO
             {
                 using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
                 {
-                    String sql = "SELECT ciu.NOMBRE_CIUDAD , SUM(CAST(VALOR_CABECERA as DECIMAL(9,0))) AS Total_Ciudad FROM CABECERAFACTURA cf, ciudad ciu WHERE ciu.codigo_CIUDAD=cf.CODIGO_CIUDAD GROUP BY ciu.NOMBRE_CIUDAD";
+                    String sql = "SELECT ciu.NOMBRE_CIUDAD , SUM(CAST(VALOR_CABECERA as DECIMAL(9,0))) AS Total_Ciudad FROM CABECERAFACTURA cf, CIUDAD ciu WHERE ciu.codigo_CIUDAD=cf.CODIGO_CIUDAD GROUP BY ciu.NOMBRE_CIUDAD";
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
