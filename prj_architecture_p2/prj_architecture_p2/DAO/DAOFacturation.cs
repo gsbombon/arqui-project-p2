@@ -251,9 +251,9 @@ namespace prj_architecture_p2.DAO
                     myConnection.Close();
                     return "Factura eliminada correctamente !";
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    return "No se pudo eliminar Factura !";
+                    return "No se pudo eliminar Factura ! - "+ex.Message;
                 }
             }
             else
@@ -269,7 +269,7 @@ namespace prj_architecture_p2.DAO
             try
             {
                 myConnection.Open();
-                String sql = "DELETE FROM DETALLEFACTURA WHERE id_detFac=" + id;
+                String sql = "DELETE FROM DETALLEFACTURA WHERE NUMERO_CABECERA=" + id;
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 myConnection.Close();

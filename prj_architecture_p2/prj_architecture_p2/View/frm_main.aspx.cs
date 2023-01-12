@@ -11,10 +11,11 @@ namespace prj_architecture_p2.View
 {
     public partial class frm_main : System.Web.UI.Page
     {
-        String hostName = string.Empty;
+        
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            String hostName = string.Empty;
             hostName = Dns.GetHostName();
             txt_server.Text = "Hostname: " + hostName;
         }
