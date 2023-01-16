@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_ciudad.aspx.cs" Inherits="prj_architecture_p2.View.Ciudad" %>
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_ciudad.aspx.cs" Inherits="prj_architecture_p2.View.Ciudad" %>
 
 <!DOCTYPE html>
 
@@ -38,9 +37,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bancos</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Tipo transacción</a></li>
-                                <li><a class="dropdown-item" href="#">Cuenta bancaria</a></li>
-                                <li><a class="dropdown-item" href="#">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_tipoTransaccion.aspx">Tipo transacción</a></li>
+                                <li><a class="dropdown-item" href="frm_cuentaBancaria.aspx">Cuenta bancaria</a></li>
+                                <li><a class="dropdown-item" href="frm_transaccion.aspx">Transacción </a></li>
+                                <li><a class="dropdown-item" href="frm_reporteBancos.aspx">Compleja </a></li>
                             </ul>
                         </li>
                     </ul>

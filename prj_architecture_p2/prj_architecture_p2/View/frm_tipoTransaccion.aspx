@@ -29,8 +29,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuentas por Cobrar</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Cobrador</a></li>
-                                <li><a class="dropdown-item" href="#">Forma de Pago</a></li>
+                                <li><a class="dropdown-item" href="frm_cobrador.aspx">Cobrador</a></li>
+                                <li><a class="dropdown-item" href="frm_formapago.aspx">Forma de Pago</a></li>
                                 <li><a class="dropdown-item" href="#">Compleja </a></li>
                             </ul>
                         </li>
