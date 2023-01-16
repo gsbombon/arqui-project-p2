@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_tipoTransaccion.aspx.cs" Inherits="prj_architecture_p2.View.Ciudad" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_tipoTransaccion.aspx.cs" Inherits="prj_architecture_p2.View.frm_tipoTransaccion" %>
 
 <!DOCTYPE html>
 

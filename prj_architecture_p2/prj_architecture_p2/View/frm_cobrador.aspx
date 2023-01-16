@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cobrador.aspx.cs" Inherits="prj_architecture_p2.View.frm_cobrador" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cobrador.aspx.cs" Inherits="prj_architecture_p2.View.frm_transaccion" %>
 
 <!DOCTYPE html>
 

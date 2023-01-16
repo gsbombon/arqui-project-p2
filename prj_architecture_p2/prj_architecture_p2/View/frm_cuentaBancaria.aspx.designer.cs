@@ -11,7 +11,7 @@ namespace prj_architecture_p2.View
 {
 
 
-    public partial class CuentaBancaria
+    public partial class frm_cuentaBancaria
     {
 
         /// <summary>

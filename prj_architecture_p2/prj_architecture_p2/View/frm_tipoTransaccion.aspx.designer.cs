@@ -11,7 +11,7 @@ namespace prj_architecture_p2.View
 {
 
 
-    public partial class TipoTransaccion
+    public partial class frm_tipoTransaccion
     {
 
         /// <summary>

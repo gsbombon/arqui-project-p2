@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace prj_architecture_p2.View
 {
-    public partial class CuentaBancaria : System.Web.UI.Page
+    public partial class frm_cuentaBancaria : System.Web.UI.Page
     {
         DAOBancos cliente = new DAOBancos();
         protected void Page_Load(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace prj_architecture_p2.View
                 txt_id.Text = dt.Rows[0]["ID_CB"].ToString();
                 txt_cuenta.Text = dt.Rows[0]["CUENTA_CB"].ToString();
                 txt_name.Text = dt.Rows[0]["NOMBRE_CB"].ToString();
-                txt_description.Text = dt.Rows[0]["DESCRIPTION_CB"].ToString();
+                txt_description.Text = dt.Rows[0]["DESCRIPCION_CB"].ToString();
                 txt_mensaje.Text = "Elemento encontrado ! ";
             }
             catch (Exception ex)

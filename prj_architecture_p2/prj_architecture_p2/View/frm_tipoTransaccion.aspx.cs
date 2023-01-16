@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace prj_architecture_p2.View
 {
-    public partial class TipoTransaccion : System.Web.UI.Page
+    public partial class frm_tipoTransaccion : System.Web.UI.Page
     {
         DAOBancos cliente = new DAOBancos();
         protected void Page_Load(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace prj_architecture_p2.View
         {
             try
             {
-                grdTT.DataSource = cliente.getListBanckAccounts();
+                grdTT.DataSource = cliente.getListTransactionTypes();
                 grdTT.DataBind();
             }
             catch (Exception ex)

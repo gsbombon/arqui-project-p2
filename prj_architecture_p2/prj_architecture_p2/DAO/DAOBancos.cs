@@ -20,7 +20,7 @@ namespace prj_architecture_p2.DAO
             try
             {
                 myConnection.Open();
-                String sql = "INSERT INTO TIPOTRANSACCION(NOMBRE_TT, SIGNO_ TT) VALUES ('" + name + ", " + sign + "')";
+                String sql = "INSERT INTO TIPOTRANSACCION(NOMBRE_TT, SIGNO_TT) VALUES ('" + name + "', '" + sign + "')";
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 myConnection.Close();
@@ -45,7 +45,7 @@ namespace prj_architecture_p2.DAO
                         sda.SelectCommand = cmd;
                         using (DataTable dt = new DataTable())
                         {
-                            dt.TableName = "CIUDAD";
+                            dt.TableName = "TIPOTRANSACCION";
                             sda.Fill(dt);
                             return dt;
                         }
@@ -79,7 +79,7 @@ namespace prj_architecture_p2.DAO
             try
             {
                 myConnection.Open();
-                String sql = "UPDATE TIPOTRANSACCION SET NOMBRE_TT = '" + name + ", SIGNO_TT" + sign + "' WHERE ID_TT=" + id;
+                String sql = "UPDATE TIPOTRANSACCION SET NOMBRE_TT = '" + name + "', SIGNO_TT = '" + sign + "' WHERE ID_TT=" + id;
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 myConnection.Close();
@@ -187,9 +187,9 @@ namespace prj_architecture_p2.DAO
                 myConnection.Close();
                 return "Cuenta actualizada correctamente !";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "No se pudo actualizar ! ";
+                return "No se pudo actualizar ! "+ex.Message;
             }
         }
 
