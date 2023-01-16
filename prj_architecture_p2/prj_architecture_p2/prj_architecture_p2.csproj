@@ -167,7 +167,9 @@
     <Content Include="js\scripts.js" />
     <Content Include="View\frm_ciudad.aspx" />
     <Content Include="View\frm_cliente.aspx" />
+    <Content Include="View\frm_cobrador.aspx" />
     <Content Include="View\frm_facturacion.aspx" />
+    <Content Include="View\frm_formapago.aspx" />
     <Content Include="View\frm_login.aspx" />
     <Content Include="View\frm_main.aspx" />
     <Content Include="View\frm_register.aspx" />
@@ -175,6 +177,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DAOCxc.cs" />
     <Compile Include="DAO\DAOFacturation.cs" />
     <Compile Include="DAO\DAOLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,12 +195,26 @@
     <Compile Include="View\frm_cliente.aspx.designer.cs">
       <DependentUpon>frm_cliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\frm_cobrador.aspx.cs">
+      <DependentUpon>frm_cobrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\frm_cobrador.aspx.designer.cs">
+      <DependentUpon>frm_cobrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\frm_facturacion.aspx.cs">
       <DependentUpon>frm_facturacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\frm_facturacion.aspx.designer.cs">
       <DependentUpon>frm_facturacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_formapago.aspx.cs">
+      <DependentUpon>frm_formapago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\frm_formapago.aspx.designer.cs">
+      <DependentUpon>frm_formapago.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\frm_login.aspx.cs">
       <DependentUpon>frm_login.aspx</DependentUpon>
