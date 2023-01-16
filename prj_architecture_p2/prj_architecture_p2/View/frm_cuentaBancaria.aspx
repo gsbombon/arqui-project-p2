@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_ciudad.aspx.cs" Inherits="prj_architecture_p2.View.Ciudad" %>
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_ciudad.aspx.cs" Inherits="prj_architecture_p2.View.Ciudad" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cuentaBancaria.aspx.cs" Inherits="prj_architecture_p2.View.Ciudad" %>
 
 <!DOCTYPE html>
 
@@ -30,17 +29,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuentas por Cobrar</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="frm_cobrador.aspx">Cobrador</a></li>
-                                <li><a class="dropdown-item" href="frm_formapago.aspx">Forma de Pago</a></li>
+                                <li><a class="dropdown-item" href="#">Cobrador</a></li>
+                                <li><a class="dropdown-item" href="#">Forma de Pago</a></li>
                                 <li><a class="dropdown-item" href="#">Compleja </a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bancos</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Tipo transacción</a></li>
-                                <li><a class="dropdown-item" href="#">Cuenta bancaria</a></li>
-                                <li><a class="dropdown-item" href="#">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_tipoTransaccion.aspx">Tipo transacción</a></li>
+                                <li><a class="dropdown-item" href="frm_cuentaBancaria.aspx">Cuenta bancaria</a></li>
+                                <li><a class="dropdown-item" href="frm_transaccion.aspx">Transacción </a></li>
+                                <li><a class="dropdown-item" href="frm_reporteBancos.aspx">Compleja </a></li>
                             </ul>
                         </li>
                     </ul>
@@ -54,7 +54,7 @@
 
     <form id="form1" runat="server">
         <div class="container mt-5">
-            <h1 class="label label-default mb-4">CIUDADES </h1>
+            <h1 class="label label-default mb-4">CUENTAS BANCARIAS </h1>
             <hr />
             <br />
             <div class="row">
@@ -62,8 +62,14 @@
                     <asp:Label runat="server" class="">CODIGO</asp:Label>
                     <asp:TextBox ID="txt_id" runat="server" class="form-control"></asp:TextBox>
                     <br />
+                    <asp:Label runat="server"># CUENTA</asp:Label>
+                    <asp:TextBox ID="txt_cuenta" runat="server" class="form-control"></asp:TextBox>
+                    <br />
                     <asp:Label runat="server">NOMBRE</asp:Label>
                     <asp:TextBox ID="txt_name" runat="server" class="form-control"></asp:TextBox>
+                    <br />
+                    <asp:Label runat="server">SIGNO</asp:Label>
+                    <asp:TextBox ID="txt_description" runat="server" class="form-control"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Button ID="btn_add" runat="server" Text="Registrar" OnClick="btn_addClick" class="btn btn-success" />
@@ -79,12 +85,14 @@
                     <asp:Label ID="txt_mensaje" runat="server">Esperando...</asp:Label>
                 </div>
                 <div class="col-7">
-                    <h3 class="text-center">Lista de Ciudades</h3>
-                    <asp:GridView ID="grdCiudad" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
-                        DataKeyNames="CODIGO_CIUDAD,NOMBRE_CIUDAD">
+                    <h3 class="text-center">Lista de Cuentas Bancarias</h3>
+                    <asp:GridView ID="grdCB" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
+                        DataKeyNames="ID_CB, CUENTA_CB, NOMBRE_CB, DESCRIPCION_CB">
                         <Columns>
-                            <asp:BoundField HeaderText="Codigo" DataField="CODIGO_CIUDAD" />
-                            <asp:BoundField HeaderText="Nombre" DataField="NOMBRE_CIUDAD" />
+                            <asp:BoundField HeaderText="Codigo" DataField="ID_CB" />
+                            <asp:BoundField HeaderText="Cuenta" DataField="CUENTA_CB" />
+                            <asp:BoundField HeaderText="Nombre" DataField="NOMBRE_CB" />
+                            <asp:BoundField HeaderText="Descripción" DataField="DESCRIPCION_CB" />
                         </Columns>
                     </asp:GridView>
                 </div>
