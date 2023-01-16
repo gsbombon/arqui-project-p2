@@ -68,7 +68,7 @@
                     <asp:Label runat="server">NOMBRE</asp:Label>
                     <asp:TextBox ID="txt_name" runat="server" class="form-control"></asp:TextBox>
                     <br />
-                    <asp:Label runat="server">SIGNO</asp:Label>
+                    <asp:Label runat="server">DESCRIPCIÓN</asp:Label>
                     <asp:TextBox ID="txt_description" runat="server" class="form-control"></asp:TextBox>
                     <br />
                     <br />

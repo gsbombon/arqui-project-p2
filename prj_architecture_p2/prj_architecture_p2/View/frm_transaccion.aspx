@@ -54,13 +54,13 @@
     
     
     <div class="container">
-        <h1 class="label label-default mt-5">TRANSACCIÓN COMPLEJA </h1>
-        <hr />
-        <div class="row">
-            <h2 class="label label-default mt-5">CUENTAS </h2>
+        <form id="form2" runat="server">
+            <h1 class="label label-default mt-5">TRANSACCIÓN COMPLEJA </h1>
             <hr />
-            <div class="col">
-                <form id="form2" runat="server">
+            <div class="row">
+                <h2 class="label label-default mt-5">ESTADOS DE CUENTAS </h2>
+                <hr />
+                <div class="col">
                     <asp:Label runat="server" class=""># ESTADO DE CUENTA</asp:Label>
                         <asp:TextBox ID="id_ct" runat="server" class="form-control"></asp:TextBox>
                         <br />
@@ -90,32 +90,30 @@
                         <br />
                         <br />
                         <asp:Label ID="Label3" runat="server" CssClass="h4" ></asp:Label>
-                </form>
-            </div>
-            <div class="col">
-                <div class="row text-center">
-                    <h2>ESTADOS DE CUENTA</h2>
                 </div>
-                <div class="row mt-3">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
-                        DataKeyNames="ID_CT,ID_CB,FECHA_CB,DESCRIPCION_CT,VALOR_CT">
-                        <Columns>
-                            <asp:BoundField HeaderText="# ESTADO DE CUENTA" DataField="ID_CT" />
-                            <asp:BoundField HeaderText="CUENTA BANCARIA" DataField="ID_CB" />
-                            <asp:BoundField HeaderText="FECHA" DataField="FECHA_CB" />
-                            <asp:BoundField HeaderText="DESCRIPCIÓN" DataField="DESCRIPCION_CT" />
-                            <asp:BoundField HeaderText="SALDO" DataField="VALOR_CT" />
-                        </Columns>
-                    </asp:GridView>
+                <div class="col">
+                    <div class="row text-center">
+                        <h2>ESTADOS DE CUENTA</h2>
+                    </div>
+                    <div class="row mt-3">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
+                            DataKeyNames="ID_CT,ID_CB,FECHA_CB,DESCRIPCION_CT,VALOR_CT">
+                            <Columns>
+                                <asp:BoundField HeaderText="# ESTADO DE CUENTA" DataField="ID_CT" />
+                                <asp:BoundField HeaderText="CUENTA BANCARIA" DataField="ID_CB" />
+                                <asp:BoundField HeaderText="FECHA" DataField="FECHA_CB" />
+                                <asp:BoundField HeaderText="DESCRIPCIÓN" DataField="DESCRIPCION_CT" />
+                                <asp:BoundField HeaderText="SALDO" DataField="VALOR_CT" />
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </div>
             </div>
-        </div>
         
-        <div class="row">
-            <h2 class="label label-default mt-5">TRANSACCIONES </h2>
-            <hr />
-            <div class="col">
-                <form id="form3" runat="server">
+            <div class="row">
+                <h2 class="label label-default mt-5">TRANSACCIONES </h2>
+                <hr />
+                <div class="col">
                     <asp:Label runat="server" class="">CODIGO DE TRANSACCION</asp:Label>
                         <asp:TextBox ID="id_dt" runat="server" class="form-control"></asp:TextBox>
                         <br />
@@ -145,9 +143,8 @@
                         <br />
                         <br />
                         <asp:Label ID="Label5" runat="server" CssClass="h4" ></asp:Label>
-                </form>
-            </div>
-            <div class="col">
+                </div>
+                <div class="col">
                 <div class="row mt-3">
                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
                         DataKeyNames="ID_DT,ID_TT,FECHA_DT,VALOR_DT">
@@ -160,7 +157,8 @@
                     </asp:GridView>
                 </div>
             </div>
-        </div>
+            </div>
+        </form>
     </div>
     
 </body>

@@ -181,7 +181,7 @@ namespace prj_architecture_p2.DAO
             try
             {
                 myConnection.Open();
-                String sql = "UPDATE CUENTABANCARIA SET CUENTA_CB = '" + account + "',NOMBRE_CB = '" + name + "',DESCRIPCION_CB = '" + description + "' WHERE id_cliente=" + id;
+                String sql = "UPDATE CUENTABANCARIA SET CUENTA_CB = '" + account + "',NOMBRE_CB = '" + name + "',DESCRIPCION_CB = '" + description + "' WHERE ID_CB = " + id ;
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 myConnection.Close();
