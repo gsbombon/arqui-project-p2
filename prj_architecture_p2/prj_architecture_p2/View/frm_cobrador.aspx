@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cobrador.aspx.cs" Inherits="prj_architecture_p2.View.frm_cobrador" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cobrador.aspx.cs" Inherits="prj_architecture_p2.View.frm_transaccion" %>
 
 <!DOCTYPE html>
 o
@@ -30,17 +30,18 @@ o
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuentas por Cobrar</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Cobrador</a></li>
-                                <li><a class="dropdown-item" href="#">Forma de Pago</a></li>
+                                <li><a class="dropdown-item" href="frm_cobrador.aspx">Cobrador</a></li>
+                                <li><a class="dropdown-item" href="frm_formapago.aspx">Forma de Pago</a></li>
                                 <li><a class="dropdown-item" href="#">Compleja </a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bancos</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Tipo transacción</a></li>
-                                <li><a class="dropdown-item" href="#">Cuenta bancaria</a></li>
-                                <li><a class="dropdown-item" href="#">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_tipoTransaccion.aspx">Tipo transacción</a></li>
+                                <li><a class="dropdown-item" href="frm_cuentaBancaria.aspx">Cuenta bancaria</a></li>
+                                <li><a class="dropdown-item" href="frm_transaccion.aspx">Transacción </a></li>
+                                <li><a class="dropdown-item" href="frm_reporteBancos.aspx">Compleja </a></li>
                             </ul>
                         </li>
                     </ul>

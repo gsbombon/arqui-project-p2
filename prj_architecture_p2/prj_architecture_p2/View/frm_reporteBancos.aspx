@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cliente.aspx.cs" Inherits="prj_architecture_p2.View.Cliente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_reporteBancos.aspx.cs" Inherits="prj_architecture_p2.View.frm_reporteBancos" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Cliente</title>
+    <title>Reporte Facturacion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
@@ -52,51 +52,37 @@
         </nav>
     </div>
     <form id="form1" runat="server">
-        <div class="container">
-            <h1 class="label label-default mt-5">CLIENTES</h1>
+        <div class="container mt-5">
+            <h1 class="label label-default mb-4">REPORTE BANCOS </h1>
             <hr />
-            <br />
             <div class="row">
-                <div class="col-5">
-                    <asp:Label runat="server" class="">CODIGO</asp:Label>
-                    <asp:TextBox ID="txt_id" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
-                    <br />
-                    <asp:Label runat="server" class="">RUC</asp:Label>
-                    <asp:TextBox ID="txt_ruc" runat="server" class="form-control"></asp:TextBox>
-                    <br />
-                    <asp:Label runat="server">NOMBRE</asp:Label>
-                    <asp:TextBox ID="txt_name" runat="server" class="form-control"></asp:TextBox>
-                    <br />
-                    <asp:Label runat="server" class="">DIRECCION</asp:Label>
-                    <asp:TextBox ID="txt_address" runat="server" class="form-control"></asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:Button ID="btn_add" runat="server" Text="Registrar" OnClick="btn_addClick" class="btn btn-success" />
-                    &nbsp;
-                    <asp:Button ID="btn_update" runat="server" Text="Actualizar" OnClick="btn_updateClick" class="btn btn-info" />
-                    &nbsp;
-                    <asp:Button ID="btn_delete" runat="server" Text="Eliminar" OnClick="btn_deleteClick" class="btn btn-danger" />
-                    &nbsp;
-                    <asp:Button ID="btn_find" runat="server" Text="Buscar" OnClick="btn_findClick" class="btn btn-primary" />
-                    &nbsp;
+                    <h2 class="text-center my-5"> Saldo X Cuenta Bancaria </h2>
+                    <div class="row" >
+                        <div class="col-3 text-end">
+                            <asp:Label runat="server" class="">FECHAS</asp:Label>
+                        </div>
+                        <div class="col-6">
+                            <asp:DropDownList ID="cmb_date" runat="server" class="form-control"></asp:DropDownList>
+                        </div>
+                        <div class="col-3">
+                            <asp:Button ID="btn_find" runat="server" Text="Buscar" class="btn btn-primary" OnClick="btn_find_Click" />
+                                <%--<asp:Button ID="btn_find_ct" runat="server" Text="Buscar" OnClick="btn_findClick_ct" class="btn btn-primary" />--%>
+                        </div>
+                    </div>   
                     <br />
                     <br />
-                    <asp:Label ID="txt_mensaje" runat="server">Esperando...</asp:Label>
-                </div>
-                <div class="col-7">
-                    <h3>Lista de Clientes</h3>
-                    <asp:GridView ID="grdClientes" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
-                        DataKeyNames="ID_CLIENTE,RUC_CLIENTE,NOMBRE_CLIENTE,DIRECCION_CLIENTE">
+                    <asp:GridView ID="grdReporte" runat="server" AutoGenerateColumns="false" CssClass="table table-striped thead-dark"
+                        DataKeyNames="CUENTA_CB,VALOR_CT, FECHA_CT">
                         <Columns>
-                            <asp:BoundField HeaderText="Codigo" DataField="ID_CLIENTE" />
-                            <asp:BoundField HeaderText="Ruc" DataField="RUC_CLIENTE" />
-                            <asp:BoundField HeaderText="Nombre" DataField="NOMBRE_CLIENTE" />
-                            <asp:BoundField HeaderText="Direccion" DataField="DIRECCION_CLIENTE" />
+                            <asp:BoundField HeaderText="Cuenta" DataField="CUENTA_CB" />
+                            <asp:BoundField HeaderText="Saldo" DataField="VALOR_CT" />
+                            <asp:BoundField HeaderText="Fecha" DataField="FECHA_CT" />
                         </Columns>
                     </asp:GridView>
-                </div>
+                        <asp:Label ID="txt_mensaje" runat="server" CssClass="h4" ></asp:Label>
             </div>
         </div>
     </form>
 </body>
+
 </html>
