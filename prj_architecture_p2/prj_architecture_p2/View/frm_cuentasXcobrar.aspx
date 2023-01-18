@@ -6,6 +6,10 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Cuentas x Cobrar</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div id="menu">
@@ -56,30 +60,25 @@
             <div class="row">
                 <div class="col">
                     <asp:Label runat="server" class="">Numero Factura</asp:Label>
-                    <asp:TextBox ID="txt_id" runat="server" class="form-control"></asp:TextBox>
-                    <asp:DropDownList ID="NumeroFact" runat="server" class="form-control"></asp:DropDownList>
+                    <asp:DropDownList ID="cmb_numeroFact" runat="server" class="form-control" ></asp:DropDownList>
                     <br />
                     <asp:Label runat="server" class="">Cliente</asp:Label>
-                    <asp:DropDownList ID="cmb_client" runat="server" class="form-control"></asp:DropDownList>
+                     <asp:TextBox ID="txt_Cliente" runat="server" class="form-control" ></asp:TextBox>
                     <br />
                     <asp:Label ID="Label1" runat="server" Text="Fecha" class="form-label"></asp:Label>
                     <asp:TextBox ID="txt_date_fact" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
                     <br />
                     <asp:Label runat="server" class="">Ciudad</asp:Label>
-                    <asp:DropDownList ID="cmb_city" runat="server" class="form-control"></asp:DropDownList>
+                     <asp:TextBox ID="txt_Ciudad" runat="server" class="form-control" ></asp:TextBox>
                     <br />
+                      <asp:Label ID="Label3" runat="server" Text="Total" class="form-label"></asp:Label>
+                    <asp:TextBox ID="txt_Total" runat="server" class="form-control" ></asp:TextBox>
+
+                      <br />
                     <div class="row" >
+                      
                         <div class="col">
-                            <asp:Button ID="btn_add" runat="server" Text="Registrar Factura" OnClick="btn_addClick" class="btn btn-success" />
-                        </div>
-                        <div class="col">
-                            <asp:Button ID="btn_update" runat="server" Text="Actualizar Datos" OnClick="btn_updateClick" class="btn btn-info" />
-                        </div>
-                        <div class="col">
-                            <asp:Button ID="btn_delete" runat="server" Text="Eliminar Factura" OnClick="btn_deleteClick" class="btn btn-danger" />
-                        </div>
-                        <div class="col">
-                            <asp:Button ID="btn_find" runat="server" Text="Buscar Factura" OnClick="btn_findClick" class="btn btn-primary" />
+                            <asp:Button ID="btn_find" runat="server" Text="Buscar Factura"  class="btn btn-primary" OnClick="btn_findClick" />
                         </div>
                     </div>
                     <br />
@@ -88,45 +87,50 @@
                     <asp:Label ID="txt_date" runat="server"></asp:Label>
                 </div>
                 <div class="col">
-                    <h3>Articulos</h3>
-                    <asp:Label runat="server" class="">Ciudad</asp:Label>
-                    <asp:DropDownList ID="cmb_products" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="cmb_products_SelectedIndexChanged"></asp:DropDownList>
+                    <h3>Pagos</h3>
+                    <asp:Label runat="server" class="">Cobrador</asp:Label>
+                    <asp:DropDownList ID="cmb_cobrador" runat="server" class="form-control" AutoPostBack="True" ></asp:DropDownList>
+                    <br />
+                    <asp:Label runat="server" class="">Forma de Pago</asp:Label>
+                    <asp:DropDownList ID="cmb_formaPago" runat="server" class="form-control" AutoPostBack="True" ></asp:DropDownList>
                     <br />
                     <asp:Label runat="server" class="">Cantidad</asp:Label>
                     <asp:TextBox ID="txt_cantidad" runat="server" class="form-control" TextMode="Number">0</asp:TextBox>
                     <br />
+                    
                     <div class="row">
                         <div class="col">
                             <asp:Label runat="server">Precio Unitario: $</asp:Label>
                             <asp:Label ID="txt_unitPrice" runat="server"></asp:Label>
                             <br />
                             <br />
-                            <asp:Button ID="btn_addProduct" runat="server" Text="Agregar al Carrito" OnClick="btn_addProductClick" class="btn btn-secondary" />
+                            <asp:Button ID="btn_addProduct" runat="server" Text="Agregar Pago" class="btn btn-secondary" OnClick="btn_addProduct_Click" />
                         </div>
-                        <div class="col">
-                            <asp:Label runat="server">Total: $</asp:Label>
-                            <asp:Label ID="txt_priceTotal" runat="server"></asp:Label>
-                            <br />
+                         <div class="col">
+                           
                             <br />
                             <asp:Label ID="txt_smsProduct" runat="server"></asp:Label>
                         </div>
                     </div>
                     <br />
-                    <h4 class="text-center">Carrito de Compras</h4>
+                    <h4 class="text-center">Pagos Realizados</h4>
                     <br />
                     <!-- DISPLAY TABLE OF PRODUCTS -->
                     <asp:GridView ID="grdProducts" runat="server" AutoGenerateColumns="false" CssClass="table table-striped"
-                        DataKeyNames="NOMBRE_ARTICULO,CANTIDAD_DETFAC,PRECIO_DETFAC">
+                        DataKeyNames="CEDULA_COBRADOR, NOMBRE_FORMAPAGO, FECHA_DETALLEPAGO, VALOR_DETALLEPAGO">
                         <Columns>
-                            <asp:BoundField HeaderText="Articulo" DataField="NOMBRE_ARTICULO" />
-                            <asp:BoundField HeaderText="Cantidad" DataField="CANTIDAD_DETFAC" />
-                            <asp:BoundField HeaderText="Precio Total" DataField="PRECIO_DETFAC" />
+                            <asp:BoundField HeaderText="Cbrador" DataField="CEDULA_COBRADOR" />
+                            <asp:BoundField HeaderText="Forma Pago" DataField="NOMBRE_FORMAPAGO" />
+                            <asp:BoundField HeaderText="Fecha" DataField="FECHA_DETALLEPAGO" />
+                             <asp:BoundField HeaderText="Valor" DataField="VALOR_DETALLEPAGO" />
+                             <asp:ButtonField ButtonType="Button" CommandName="IncreasePrice"    Text="Eliminar" />
+                       
                         </Columns>
                     </asp:GridView>
                     <br />
                     <div class="row">
                         <div class="col-8">
-                            <asp:Label class="h5" runat="server">Precio Total de Factura:</asp:Label>
+                            <asp:Label class="h5" runat="server">Valor Total de Factura Pagada:</asp:Label>
                         </div>
                         <div class="col-4">
                             <asp:Label class="h4" ID="txt_priceTotalFact" runat="server"></asp:Label>
@@ -134,11 +138,7 @@
                     </div>
                     <br />
                     <br />
-                    <div class="text-center">
-                        <asp:Label class="h6" ID="Label2" runat="server"> Click para comprar ! </asp:Label>
-                        <br /><br />
-                        <asp:Button ID="btn_sendFact" runat="server" Text="Comprar" OnClick="btn_sendFactClick" class="form-control btn btn-warning " />
-                    </div>
+                    
 
                 </div>
             </div>

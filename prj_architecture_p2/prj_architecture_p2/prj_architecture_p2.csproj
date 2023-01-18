@@ -168,11 +168,13 @@
     <Content Include="View\frm_ciudad.aspx" />
     <Content Include="View\frm_cliente.aspx" />
     <Content Include="View\frm_cobrador.aspx" />
+    <Content Include="View\frm_cuentasXcobrar.aspx" />
     <Content Include="View\frm_facturacion.aspx" />
     <Content Include="View\frm_formapago.aspx" />
     <Content Include="View\frm_login.aspx" />
     <Content Include="View\frm_main.aspx" />
     <Content Include="View\frm_register.aspx" />
+    <Content Include="View\frm_reporteCxc.aspx" />
     <Content Include="View\frm_reporteFacturacion.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -201,6 +203,13 @@
     </Compile>
     <Compile Include="View\frm_cobrador.aspx.designer.cs">
       <DependentUpon>frm_cobrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_cuentasXcobrar.aspx.cs">
+      <DependentUpon>frm_cuentasXcobrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\frm_cuentasXcobrar.aspx.designer.cs">
+      <DependentUpon>frm_cuentasXcobrar.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\frm_facturacion.aspx.cs">
       <DependentUpon>frm_facturacion.aspx</DependentUpon>
@@ -236,6 +245,13 @@
     </Compile>
     <Compile Include="View\frm_register.aspx.designer.cs">
       <DependentUpon>frm_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\frm_reporteCxc.aspx.cs">
+      <DependentUpon>frm_reporteCxc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\frm_reporteCxc.aspx.designer.cs">
+      <DependentUpon>frm_reporteCxc.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\frm_reporteFacturacion.aspx.cs">
       <DependentUpon>frm_reporteFacturacion.aspx</DependentUpon>

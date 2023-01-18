@@ -267,6 +267,6 @@ namespace prj_architecture_p2.View
             }
         }
 
-
+     
     }
 }

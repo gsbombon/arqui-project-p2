@@ -33,15 +33,6 @@ namespace prj_architecture_p2.View
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control txt_id.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_id;
-
-        /// <summary>
         /// Control cmb_numeroFact.
         /// </summary>
         /// <remarks>
@@ -51,13 +42,13 @@ namespace prj_architecture_p2.View
         protected global::System.Web.UI.WebControls.DropDownList cmb_numeroFact;
 
         /// <summary>
-        /// Control cmb_client.
+        /// Control txt_Cliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_client;
+        protected global::System.Web.UI.WebControls.TextBox txt_Cliente;
 
         /// <summary>
         /// Control Label1.
@@ -78,40 +69,31 @@ namespace prj_architecture_p2.View
         protected global::System.Web.UI.WebControls.TextBox txt_date_fact;
 
         /// <summary>
-        /// Control cmb_city.
+        /// Control txt_Ciudad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_city;
+        protected global::System.Web.UI.WebControls.TextBox txt_Ciudad;
 
         /// <summary>
-        /// Control btn_add.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_add;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control btn_update.
+        /// Control txt_Total.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_update;
-
-        /// <summary>
-        /// Control btn_delete.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_delete;
+        protected global::System.Web.UI.WebControls.TextBox txt_Total;
 
         /// <summary>
         /// Control btn_find.
@@ -141,13 +123,22 @@ namespace prj_architecture_p2.View
         protected global::System.Web.UI.WebControls.Label txt_date;
 
         /// <summary>
-        /// Control cmb_products.
+        /// Control cmb_cobrador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmb_products;
+        protected global::System.Web.UI.WebControls.DropDownList cmb_cobrador;
+
+        /// <summary>
+        /// Control cmb_formaPago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmb_formaPago;
 
         /// <summary>
         /// Control txt_cantidad.
@@ -177,15 +168,6 @@ namespace prj_architecture_p2.View
         protected global::System.Web.UI.WebControls.Button btn_addProduct;
 
         /// <summary>
-        /// Control txt_priceTotal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txt_priceTotal;
-
-        /// <summary>
         /// Control txt_smsProduct.
         /// </summary>
         /// <remarks>
@@ -211,24 +193,6 @@ namespace prj_architecture_p2.View
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txt_priceTotalFact;
-
-        /// <summary>
-        /// Control Label2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// Control btn_sendFact.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_sendFact;
 
         /// <summary>
         /// Control grdFacts.
