@@ -107,6 +107,7 @@ namespace prj_architecture_p2.View
                 txt_mensaje.Text = txt_Cliente.Text+ cmb_numeroFact.Text;
                 loadCmbNameCObrador();
                 loadCmbNameFP();
+
             }
             catch (Exception ex)
             {
