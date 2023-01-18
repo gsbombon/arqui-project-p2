@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_reporteBancos.aspx.cs" Inherits="prj_architecture_p2.View.ReporteFacturacion" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_reporteBancos.aspx.cs" Inherits="prj_architecture_p2.View.frm_reporteBancos" %>
 
 <!DOCTYPE html>
 
@@ -53,10 +53,9 @@
     </div>
     <form id="form1" runat="server">
         <div class="container mt-5">
-            <h1 class="label label-default mb-4">REPORTE FACTURACION </h1>
+            <h1 class="label label-default mb-4">REPORTE BANCOS </h1>
             <hr />
             <div class="row">
-                <form id="form2" runat="server">
                     <h2 class="text-center my-5"> Saldo X Cuenta Bancaria </h2>
                     <div class="row" >
                         <div class="col-3 text-end">
@@ -66,7 +65,8 @@
                             <asp:DropDownList ID="cmb_date" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-3">
-                            <asp:Button ID="btn_find" runat="server" Text="Registrar EC" OnClick="btn_findClick" class="btn btn-success" />
+                            <asp:Button ID="btn_find" runat="server" Text="Buscar" class="btn btn-primary" OnClick="btn_find_Click" />
+                                <%--<asp:Button ID="btn_find_ct" runat="server" Text="Buscar" OnClick="btn_findClick_ct" class="btn btn-primary" />--%>
                         </div>
                     </div>   
                     <br />
@@ -79,10 +79,10 @@
                             <asp:BoundField HeaderText="Fecha" DataField="FECHA_CT" />
                         </Columns>
                     </asp:GridView>
-                    <asp:Label ID="txt_mensaje" runat="server"></asp:Label>
-                </form>
+                        <asp:Label ID="txt_mensaje" runat="server" CssClass="h4" ></asp:Label>
             </div>
         </div>
     </form>
 </body>
+
 </html>

@@ -391,6 +391,32 @@ namespace prj_architecture_p2.DAO
             }
         }
 
+
+        public DataTable getListTransactionDetail()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
+            {
+                String sql = "SELECT dt.ID_DT, dt.ID_TT, tt.NOMBRE_TT, dt.FECHA_DT, dt.VALOR_DT " +
+                                "FROM DETALLETRANSACCION as dt, TIPOTRANSACCION as tt " +
+                                    "WHERE dt.ID_TT = tt.ID_TT AND dt.ID_DETALLEPAGO IS NOT NULL ORDER BY dt.ID_DT ASC";
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            dt.TableName = "DETAILS-HEAD";
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+
+                }
+            }
+        }
+
         public String insertNewTransactionDetail(int id_ct, int id_tt, String date, String valor)
         {
             String sql = "";
@@ -568,33 +594,25 @@ namespace prj_architecture_p2.DAO
 
         public DataTable getReportOne()
         {
-            try
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
             {
-                using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
+                String sql = "SELECT c.ID_CB, c2.CUENTA_CB, c.VALOR_CT, c.FECHA_CT FROM CABECERATRANSACCION c, CUENTABANCARIA c2 WHERE c.ID_CB = c2.ID_CB";
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
-                    String sql = "SELECT c2.CUENTA_CB, c.VALOR_CT, c.FECHA_CT FROM CABECERATRANSACCION c, CUENTABANCARIA c2 WHERE c.ID_CB = c2.ID_CB";
-                    using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter())
                     {
-                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
                         {
-                            cmd.Connection = con;
-                            sda.SelectCommand = cmd;
-                            using (DataTable dt = new DataTable())
-                            {
-                                dt.TableName = "REPORT-ONE";
-                                sda.Fill(dt);
-                                return dt;
-                            }
+                            dt.TableName = "REPORT-ONE";
+                            sda.Fill(dt);
+                            return dt;
                         }
-
                     }
+
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
-
         }
 
         public DataTable filterDate()
@@ -625,9 +643,9 @@ namespace prj_architecture_p2.DAO
         {
             try
             {
-                using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
+                using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
                 {
-                    String sql = "SELECT c2.CUENTA_CB, c.VALOR_CT, c.FECHA_CT FROM CABECERATRANSACCION c, CUENTABANCARIA c2 WHERE c.ID_CB = c2.ID_CB AND c.FECHA_CT = " + date;
+                    String sql = "SELECT c2.CUENTA_CB, c.VALOR_CT, c.FECHA_CT FROM CABECERATRANSACCION c, CUENTABANCARIA c2 WHERE c.ID_CB = c2.ID_CB AND c.FECHA_CT = '" + date + "'";
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())

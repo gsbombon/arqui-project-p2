@@ -35,13 +35,7 @@ namespace prj_architecture_p2.View
             {
                 loadTableFacts();
                 loadCmbCuentas();
-                //loadTableDetail();
                 loadCmbTT();
-                /*loadCmbNameClient();
-                loadCmbNameCity();
-                loadCmbProducts();
-                loadPriceUnit(cmb_products.Text);
-                loadPriceTotalProductSelect(cmb_products.Text);*/
             }
         }
 
@@ -65,6 +59,8 @@ namespace prj_architecture_p2.View
             {
                 grdCuenta.DataSource = cliente.getListTransactionHeader();
                 grdCuenta.DataBind();
+                grdTransaccion.DataSource = cliente.getListTransactionDetail();
+                grdTransaccion.DataBind();
             }
             catch (Exception ex) { txt_mensaje_ct.Text = "Excepción tabla fact : " + ex.Message; }
 

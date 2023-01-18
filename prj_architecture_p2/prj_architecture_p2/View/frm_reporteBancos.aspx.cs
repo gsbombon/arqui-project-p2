@@ -1,5 +1,4 @@
-﻿using MySqlX.XDevAPI;
-using prj_architecture_p2.DAO;
+﻿using prj_architecture_p2.DAO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace prj_architecture_p2.View
 {
-    public partial class ReporteBancos : System.Web.UI.Page
+    public partial class frm_reporteBancos : System.Web.UI.Page
     {
         ArrayList dates = new ArrayList();
         DAOBancos cliente = new DAOBancos();
@@ -36,9 +35,9 @@ namespace prj_architecture_p2.View
                 grdReporte.DataSource = cliente.getReportOne();
                 grdReporte.DataBind();
             }
-            catch (Exception ex) 
-            { 
-                txt_mensaje.Text = "Excepción: " + ex.Message; 
+            catch (Exception ex)
+            {
+                txt_mensaje.Text = "Excepción: " + ex.Message;
             }
 
         }
@@ -51,7 +50,7 @@ namespace prj_architecture_p2.View
                 int nRows = this.dtDates.Rows.Count;
                 for (int i = 0; i < nRows; i++)
                 {
-                    dates.Add(this.dtDates.Rows[i]["CUENTA_CB"].ToString());
+                    dates.Add(this.dtDates.Rows[i]["FECHA_CT"].ToString());
                 }
                 cmb_date.DataSource = dates;
                 cmb_date.DataBind();
@@ -63,7 +62,7 @@ namespace prj_architecture_p2.View
             }
         }
 
-        protected void btn_findClick(object sender, EventArgs e)
+        protected void btn_find_Click(object sender, EventArgs e)
         {
             try
             {
@@ -76,6 +75,5 @@ namespace prj_architecture_p2.View
                 txt_mensaje.Text = "Error: " + ex.Message;
             }
         }
-
     }
 }

@@ -11,7 +11,7 @@ namespace prj_architecture_p2.View
 {
 
 
-    public partial class ReporteBancos
+    public partial class frm_reporteBancos
     {
 
         /// <summary>
@@ -31,15 +31,6 @@ namespace prj_architecture_p2.View
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Control form2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
 
         /// <summary>
         /// Control cmb_date.
