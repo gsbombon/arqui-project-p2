@@ -219,11 +219,11 @@ namespace prj_architecture_p2.DAO
         // WEB METHODS FOR TABLE "TRANSACCION"
         public DataTable getListTransactionHeader()
         {
-            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
             {
-                String sql = "SELECT ct.ID_CT, cb.CUENTA_CB, cb.NOMBRE_CB, ct.FECHA_CT, ct.DESCRIPCION_CT, ct.VALOR_CT  " +
-                                "FROM CABECERATRANSACCION as ct, CUENTABANCARIA as cb" +
-                                    "WHERE ct.ID_CB = cb.ID_CB ORDER BY ct.ID_CT";
+                String sql = "SELECT ct.ID_CT, cb.CUENTA_CB, cb.NOMBRE_CB, ct.FECHA_CT, ct.DESCRIPCION_CT, ct.VALOR_CT " +
+                                "FROM CABECERATRANSACCION as ct, CUENTABANCARIA as cb " +
+                                    "WHERE ct.ID_CB = cb.ID_CB ORDER BY ct.ID_CT ASC";
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
                     using (MySqlDataAdapter sda = new MySqlDataAdapter())
@@ -249,7 +249,7 @@ namespace prj_architecture_p2.DAO
             try
             {
                 myConnection.Open();
-                sql = "INSERT INTO CABECERATRANSACCION(ID_CB, FECHA_CT, DESCRIPCION_CT, VALOR_CT)VALUES(" + id_cb + ",'" + date + "','" + description + ", " + valor + "')";
+                sql = "INSERT INTO CABECERATRANSACCION(ID_CB, ID_DETALLEPAGO, FECHA_CT, DESCRIPCION_CT, VALOR_CT)VALUES(" + id_cb + ", '','" + date + "','" + description + "', '" + valor + "')";
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 myConnection.Close();
@@ -263,7 +263,7 @@ namespace prj_architecture_p2.DAO
 
         public String deleteTransactionHeader(int id)
         {
-            if (deleteTransactionDetail(id))
+            if (deleteTransactionDetailHEADER(id))
             {
                 MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
                 try
@@ -287,13 +287,13 @@ namespace prj_architecture_p2.DAO
 
         }
 
-        public String updateTransactionHeader(int id_ct, int id_cb, int id_dp, String date, String description)
+        public String updateTransactionHeader(int id_ct, int id_cb, String date, String description)
         {
             MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
             try
             {
                 myConnection.Open();
-                String sql = "UPDATE CABECERATRANSACCION SET ID_CB = " + id_cb + ",ID_DETALLEPAGO = '" + id_dp + ",FECHA_CT = '" + date + "',DESCRIPCION_CT = '" + description + "' WHERE ID_CT=" + id_ct;
+                String sql = "UPDATE CABECERATRANSACCION SET ID_CB = " + id_cb + ",FECHA_CT = '" + date + "',DESCRIPCION_CT = '" + description + "' WHERE ID_CT=" + id_ct;
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 myConnection.Close();
@@ -305,7 +305,7 @@ namespace prj_architecture_p2.DAO
             }
         }
 
-        public bool deleteTransactionDetail(int id)
+        public bool deleteTransactionDetailHEADER(int id)
         {
             MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
             try
@@ -323,13 +323,31 @@ namespace prj_architecture_p2.DAO
             }
         }
 
+        public String deleteTransactionDetail(int id)
+        {
+            MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
+            try
+            {
+                myConnection.Open();
+                String sql = "DELETE FROM DETALLETRANSACCION WHERE ID_DT=" + id;
+                MySqlCommand command = new MySqlCommand(sql, myConnection);
+                MySqlDataReader dr1 = command.ExecuteReader();
+                myConnection.Close();
+                return "Transaccion eliminada correctamente !";
+            }
+            catch (Exception ex)
+            {
+                return "No se pudo eliminar el Estado de Cuenta ! - " + ex.Message;
+            }
+        }
+
         public DataTable findTransactionFromId(int id_ct)
         {
-            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
             {
-                String sql = "SELECT ct.ID_CT, cb.CUENTA_CB, cb.NOMBRE_CB, ct.FECHA_CT, ct.DESCRIPCION_CT, ct.VALOR_CT  " +
-                                "FROM CABECERATRANSACCION as ct, CUENTABANCARIA as cb" +
-                                   "WHERE ct.ID_CB = cb.ID_CB AND ct.ID_CT=" + id_ct;
+                String sql = "SELECT ct.ID_CT, cb.CUENTA_CB, ct.FECHA_CT, ct.DESCRIPCION_CT, ct.VALOR_CT " +
+                                "FROM CABECERATRANSACCION as ct, CUENTABANCARIA as cb " +
+                                   "WHERE ct.ID_CB=cb.ID_CB AND ct.ID_CT=" + id_ct;
                 using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
                     using (MySqlDataAdapter sda = new MySqlDataAdapter())
@@ -338,7 +356,7 @@ namespace prj_architecture_p2.DAO
                         sda.SelectCommand = cmd;
                         using (DataTable dt = new DataTable())
                         {
-                            dt.TableName = "CABECERA";
+                            dt.TableName = "DETAILS-HEAD";
                             sda.Fill(dt);
                             return dt;
                         }
@@ -348,6 +366,94 @@ namespace prj_architecture_p2.DAO
             }
         }
 
+        public DataTable getListTransactionDetailForHeader(int id_ct)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
+            {
+                String sql = "SELECT dt.ID_DT, dt.ID_TT, tt.NOMBRE_TT, dt.FECHA_DT, dt.VALOR_DT " +
+                                "FROM DETALLETRANSACCION as dt, TIPOTRANSACCION as tt " +
+                                    "WHERE dt.ID_TT = tt.ID_TT AND dt.ID_CT =" + id_ct + " ORDER BY dt.ID_DT ASC";
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            dt.TableName = "DETAILS-HEAD";
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        public String insertNewTransactionDetail(int id_ct, int id_tt, String date, String valor)
+        {
+            String sql = "";
+            MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
+            try
+            {
+                myConnection.Open();
+                sql = "INSERT INTO DETALLETRANSACCION(ID_CT, ID_TT, FECHA_DT, VALOR_DT) VALUES(" + id_ct + "," + id_tt + ",'" + date + "','" + valor + "')";
+                MySqlCommand command = new MySqlCommand(sql, myConnection);
+                MySqlDataReader dr1 = command.ExecuteReader();
+                myConnection.Close();
+                return "Transaccion creada correctamente !";
+            }
+            catch (Exception ex)
+            {
+                return "No se pudo registrar el Estado de Cuenta ! Error: " + ex.Message + "sql: " + sql;
+            }
+        }
+
+        public String updateTransactionDetail(int id_ct, int id_dt, int id_tt, String date, String valor)
+        {
+            String sql = "UPDATE DETALLETRANSACCION SET ID_CT = " + id_ct + ",ID_TT = " + id_tt + ",FECHA_DT = '" + date + "',VALOR_DT = '" + valor + "' WHERE ID_DT=" + id_dt;
+            MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
+            try
+            {
+                myConnection.Open();
+                MySqlCommand command = new MySqlCommand(sql, myConnection);
+                MySqlDataReader dr1 = command.ExecuteReader();
+                myConnection.Close();
+                return "Transaccion actualizada correctamente !";
+            }
+            catch (Exception)
+            {
+                return sql+" No se pudo actualizar ! ";
+            }
+        }
+
+        public DataTable findTransactionDetailFromId(int id_dt)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123;old guids=true"))
+            {
+                String sql = "SELECT dt.ID_DT, dt.ID_CT, dt.ID_TT, tt.NOMBRE_TT, dt.FECHA_DT, dt.VALOR_DT " +
+                                "FROM DETALLETRANSACCION as dt, TIPOTRANSACCION as tt " +
+                                   "WHERE dt.ID_TT = tt.ID_TT AND dt.ID_DT=" + id_dt;
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            dt.TableName = "DETAILS-HEAD";
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+
+                }
+            }
+        }
+
+
         // METHODS FOR EXTRACT IDS TO TABLES ESPECIFICS
         public int getIdBanckAccountFromName(String name)
         {
@@ -356,7 +462,7 @@ namespace prj_architecture_p2.DAO
             try
             {
                 myConnection.Open();
-                String sql = "SELECT ID_CB FROM CUENTABANCARIA WHERE NOMBRE_CB='" + name + "'";
+                String sql = "SELECT ID_CB FROM CUENTABANCARIA WHERE CUENTA_CB='" + name + "'";
                 MySqlCommand command = new MySqlCommand(sql, myConnection);
                 MySqlDataReader dr1 = command.ExecuteReader();
                 while (dr1.Read())
@@ -395,7 +501,30 @@ namespace prj_architecture_p2.DAO
             }
         }
 
-        public double getTotalPriceTransactions(int id_ct)
+        public string getSignoTansactionTypeFromId(int id)
+        {
+            string signo = "";
+            MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
+            try
+            {
+                myConnection.Open();
+                String sql = "SELECT SIGNO_TT FROM TIPOTRANSACCION WHERE ID_TT=" + id;
+                MySqlCommand command = new MySqlCommand(sql, myConnection);
+                MySqlDataReader dr1 = command.ExecuteReader();
+                while (dr1.Read())
+                {
+                    signo = Convert.ToString(dr1["SIGNO_TT"]);
+                }
+                myConnection.Close();
+                return signo;
+            }
+            catch (Exception)
+            {
+                return signo;
+            }
+        }
+
+        public double getTotalTransactions(int id_ct)
         {
             double priceTotal = 0;
             MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
@@ -418,17 +547,18 @@ namespace prj_architecture_p2.DAO
             }
         }
 
-        public String updateTotalPriceTransactions(int id_ct, String price_total)
+        public String updateTotalTransactions(string valor, int id_ct)
         {
             MySqlConnection myConnection = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123");
             try
             {
+                //double total = 0;
                 myConnection.Open();
-                String sql = "UPDATE CABECERATRANSACCION SET VALOR_CT = '" + price_total + "' WHERE ID_CT=" + id_ct;
-                MySqlCommand command = new MySqlCommand(sql, myConnection);
-                MySqlDataReader dr1 = command.ExecuteReader();
+                String sql2 = "UPDATE CABECERATRANSACCION SET VALOR_CT = '" + valor + "' WHERE ID_CT =" + id_ct;
+                MySqlCommand command2 = new MySqlCommand(sql2, myConnection);
+                MySqlDataReader dr2 = command2.ExecuteReader();
                 myConnection.Close();
-                return "valor registrado";
+                return "valor cambiado";
             }
             catch (Exception)
             {
@@ -442,10 +572,7 @@ namespace prj_architecture_p2.DAO
             {
                 using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
                 {
-                    String sql = "SELECT cb.ID_CB, cb.NOMBRE_CB , SUM(CAST(ct.VALOR_CT as DECIMAL(9,0))) AS Total" +
-                                    "FROM CABECERATRANSACCION ct, CUENTABANCARIA cb" +
-                                        "WHERE ciu.codigo_CIUDAD = cf.CODIGO_CIUDAD " +
-                                        "GROUP BY cb.ID_CB";
+                    String sql = "SELECT c2.CUENTA_CB, c.VALOR_CT, c.FECHA_CT FROM CABECERATRANSACCION c, CUENTABANCARIA c2 WHERE c.ID_CB = c2.ID_CB";
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
                         using (MySqlDataAdapter sda = new MySqlDataAdapter())
@@ -470,6 +597,60 @@ namespace prj_architecture_p2.DAO
 
         }
 
+        public DataTable filterDate()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
+            {
+                String sql = "SELECT DISTINCT c.FECHA_CT FROM CABECERATRANSACCION c";
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            dt.TableName = "FILTER";
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        public DataTable findDateReportOne(string date)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection("server=database-2-arqui-prod.ckwn9gqw1b2k.us-east-2.rds.amazonaws.com;user=admin;database=ProjectArquiDB;port=3306;password=admin123"))
+                {
+                    String sql = "SELECT c2.CUENTA_CB, c.VALOR_CT, c.FECHA_CT FROM CABECERATRANSACCION c, CUENTABANCARIA c2 WHERE c.ID_CB = c2.ID_CB AND c.FECHA_CT = " + date;
+                    using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                    {
+                        using (MySqlDataAdapter sda = new MySqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                dt.TableName = "REPORT-ONE";
+                                sda.Fill(dt);
+                                return dt;
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
 
     }
 }

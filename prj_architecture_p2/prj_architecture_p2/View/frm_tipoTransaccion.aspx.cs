@@ -30,10 +30,28 @@ namespace prj_architecture_p2.View
             txt_name.Text = "";
             txt_sign.Text = "";
         }
+
+        //public string CMCJ_Encriptar(string cadena)
+        //{
+        //    string result = string.Empty;
+        //    byte[] encryted = System.Text.Encoding.Unicode.GetBytes(cadena);
+        //    result = Convert.ToBase64String(encryted);
+        //    return result;
+        //}
+        //public string CMCJ_DesEncriptar(string cadena)
+        //{
+        //    string result = string.Empty;
+        //    byte[] decryted = Convert.FromBase64String(cadena);
+        //    //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
+        //    result = System.Text.Encoding.Unicode.GetString(decryted);
+        //    return result;
+        //}
         protected void btn_addClick(object sender, EventArgs e)
         {
             try
             {
+                //String cadena = CMCJ_Encriptar(txt_name.Text);
+                //txt_mensaje.Text = cliente.insertTransactionType(cadena, txt_sign.Text);
                 txt_mensaje.Text = cliente.insertTransactionType(txt_name.Text, txt_sign.Text);
                 this.cleanForm();
                 loadDataToGrid();
@@ -48,6 +66,8 @@ namespace prj_architecture_p2.View
         {
             try
             {
+                //String cadena = CMCJ_Encriptar(txt_name.Text);
+                //txt_mensaje.Text = cliente.updateTransactionType(Convert.ToInt32(txt_id.Text), cadena, txt_sign.Text);
                 txt_mensaje.Text = cliente.updateTransactionType(Convert.ToInt32(txt_id.Text), txt_name.Text, txt_sign.Text);
                 this.cleanForm();
                 loadDataToGrid();
@@ -80,6 +100,7 @@ namespace prj_architecture_p2.View
                 grdTT.DataBind();
                 DataTable dt = cliente.findTransactionType(Convert.ToInt32(txt_id.Text));
                 txt_id.Text = dt.Rows[0]["ID_TT"].ToString();
+                //txt_name.Text = CMCJ_DesEncriptar(dt.Rows[0]["NOMBRE_TT"].ToString());
                 txt_name.Text = dt.Rows[0]["NOMBRE_TT"].ToString();
                 txt_sign.Text = dt.Rows[0]["SIGNO_TT"].ToString();
                 txt_mensaje.Text = "Elemento encontrado ! ";
