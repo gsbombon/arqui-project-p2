@@ -15,7 +15,7 @@
     <div id="menu">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Architecture Software</a>
+                <a class="navbar-brand" href="frm_main.aspx">Architecture Software</a>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
@@ -30,17 +30,19 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Cuentas por Cobrar</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Cobrador</a></li>
-                                <li><a class="dropdown-item" href="#">Forma de Pago</a></li>
-                                <li><a class="dropdown-item" href="#">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_cobrador.aspx">Cobrador</a></li>
+                                <li><a class="dropdown-item" href="frm_formapago.aspx">Forma de Pago</a></li>
+                                <li><a class="dropdown-item" href="frm_cuentasXcobrar.aspx">Forma de Pago</a></li>
+                                <li><a class="dropdown-item" href="frm_reporteCxc">Compleja </a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bancos</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Tipo transacción</a></li>
-                                <li><a class="dropdown-item" href="#">Cuenta bancaria</a></li>
-                                <li><a class="dropdown-item" href="#">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_tipoTransaccion.aspx">Tipo transacción</a></li>
+                                <li><a class="dropdown-item" href="frm_cuentaBancaria.aspx">Cuenta bancaria</a></li>
+                                <li><a class="dropdown-item" href="frm_transaccion.aspx">Transacción </a></li>
+                                <li><a class="dropdown-item" href="frm_reporteBancos.aspx">Compleja </a></li>
                             </ul>
                         </li>
                     </ul>

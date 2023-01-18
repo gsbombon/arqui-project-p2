@@ -11,17 +11,17 @@ namespace prj_architecture_p2.View
 {
 
 
-    public partial class frm_cobrador
+    public partial class frm_cobrador1
     {
 
         /// <summary>
-        /// Control txt_server.
+        /// Control txt_serve.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txt_server;
+        protected global::System.Web.UI.WebControls.Label txt_serve;
 
         /// <summary>
         /// Control form1.

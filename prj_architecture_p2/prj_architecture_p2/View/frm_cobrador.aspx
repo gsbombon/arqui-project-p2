@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cobrador.aspx.cs" Inherits="prj_architecture_p2.View.frm_transaccion" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_cobrador.aspx.cs" Inherits="prj_architecture_p2.View.frm_cobrador1" %>
 
 <!DOCTYPE html>
-o
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -46,7 +46,8 @@ o
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <asp:Label ID="txt_server" runat="server" class="nav-link px-lg-3 py-3 py-lg-4"></asp:Label>
+                       
+                         <asp:Label ID="txt_serve" runat="server" class="nav-link px-lg-3 py-3 py-lg-4"></asp:Label>
                     </ul>
                 </div>
             </div>
@@ -97,4 +98,5 @@ o
         </div>
     </form>
 </body>
+
 </html>

@@ -165,13 +165,13 @@
     <Content Include="css\styles.css" />
     <Content Include="index.html" />
     <Content Include="js\scripts.js" />
+    <Content Include="View\frm_cobrador.aspx" />
     <Content Include="View\frm_reporteBancos.aspx" />
     <Content Include="View\frm_transaccion.aspx" />
     <Content Include="View\frm_tipoTransaccion.aspx" />
     <Content Include="View\frm_cuentaBancaria.aspx" />
     <Content Include="View\frm_ciudad.aspx" />
     <Content Include="View\frm_cliente.aspx" />
-    <Content Include="View\frm_cobrador.aspx" />
     <Content Include="View\frm_cuentasXcobrar.aspx" />
     <Content Include="View\frm_facturacion.aspx" />
     <Content Include="View\frm_formapago.aspx" />
@@ -188,6 +188,13 @@
     <Compile Include="DAO\DAOFacturation.cs" />
     <Compile Include="DAO\DAOLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\frm_cobrador.aspx.cs">
+      <DependentUpon>frm_cobrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\frm_cobrador.aspx.designer.cs">
+      <DependentUpon>frm_cobrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\frm_reporteBancos.aspx.cs">
       <DependentUpon>frm_reporteBancos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,13 +236,6 @@
     </Compile>
     <Compile Include="View\frm_cliente.aspx.designer.cs">
       <DependentUpon>frm_cliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\frm_cobrador.aspx.cs">
-      <DependentUpon>frm_cobrador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\frm_cobrador.aspx.designer.cs">
-      <DependentUpon>frm_cobrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\frm_cuentasXcobrar.aspx.cs">
       <DependentUpon>frm_cuentasXcobrar.aspx</DependentUpon>
