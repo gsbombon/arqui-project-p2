@@ -32,8 +32,8 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="frm_cobrador.aspx">Cobrador</a></li>
                                 <li><a class="dropdown-item" href="frm_formapago.aspx">Forma de Pago</a></li>
-                                <li><a class="dropdown-item" href="frm_cuentasXcobrar.aspx">Forma de Pago</a></li>
-                                <li><a class="dropdown-item" href="frm_reporteCxc.aspx">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_cuentasXcobrar.aspx">Cuentas x Cobrar</a></li>
+                                <li><a class="dropdown-item" href="frm_reporteCxc.aspx">Reporte </a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

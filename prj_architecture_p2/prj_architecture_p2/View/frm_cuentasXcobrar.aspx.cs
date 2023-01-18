@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace prj_architecture_p2.View
 {
@@ -34,7 +35,8 @@ namespace prj_architecture_p2.View
             hostName = Dns.GetHostName();
             txt_server.Text = "Hostname: " + hostName;
             loadCmbNameClient();
-         
+           
+
         }
 
         private void loadCmbNameClient()
@@ -92,16 +94,17 @@ namespace prj_architecture_p2.View
             try
             {
 
-                dtHeadFact = cobrador.findFactFromId(cmb_numeroFact.Text);
+                dtHeadFact = cobrador.findFactFromId(txt_id.Text);
                 txt_Cliente.Text = dtHeadFact.Rows[0]["NOMBRE_CLIENTE"].ToString();
                 txt_Ciudad.Text = dtHeadFact.Rows[0]["NOMBRE_CIUDAD"].ToString();
                 txt_Total.Text = dtHeadFact.Rows[0]["VALOR_CABECERA"].ToString();
                 txt_date_fact.Text = dtHeadFact.Rows[0]["FECHA_CABECERA"].ToString();
                 //CARGAR CARRITO DE COMPRAS
-                grdProducts.DataSource = cobrador.getDetailsProductsFromFact(Convert.ToInt32(cmb_numeroFact.Text));
+                grdProducts.DataSource = cobrador.getDetailsProductsFromFact(Convert.ToInt32(txt_id.Text));
                 grdProducts.DataBind();
-                loadPriceTotalFact(Convert.ToInt32(cmb_numeroFact.Text));
+                loadPriceTotalFact(Convert.ToInt32(txt_id.Text));
                 //    loadTableFacts();
+                txt_mensaje.Text = txt_Cliente.Text+ cmb_numeroFact.Text;
                 loadCmbNameCObrador();
                 loadCmbNameFP();
             }
@@ -127,7 +130,7 @@ namespace prj_architecture_p2.View
                 id=Convert.ToString(id_val);
                 string cobra = cmb_cobrador.Text;
                 string formapay = cobrador.getIdFpFromName(cmb_formaPago.Text);
-                int id_fact = Convert.ToInt32(cmb_numeroFact.Text);
+                int id_fact = Convert.ToInt32(txt_id.Text);
                 string cantidad = txt_cantidad.Text;
                 double sum = Convert.ToInt32(cantidad) + loadPriceTotalFact(id_fact);
                 double val2 = Convert.ToInt32(txt_Total.Text); 
@@ -139,7 +142,7 @@ namespace prj_architecture_p2.View
                 {
                     txt_smsProduct.Text = cobrador.addProductToFact(id, formapay, cobra, id_fact, cantidad);
 
-                    grdProducts.DataSource = cobrador.getDetailsProductsFromFact(Convert.ToInt32(cmb_numeroFact.Text));
+                    grdProducts.DataSource = cobrador.getDetailsProductsFromFact(Convert.ToInt32(txt_id.Text));
                     grdProducts.DataBind();
                     loadPriceTotalFact(id_fact);
                 }
@@ -166,6 +169,9 @@ namespace prj_architecture_p2.View
             }
         }
 
-
+        protected void cmb_numeroFact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_id.Text= cmb_numeroFact.Text;
+        }
     }
 }

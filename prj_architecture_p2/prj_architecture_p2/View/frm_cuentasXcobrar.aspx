@@ -32,8 +32,8 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="frm_cobrador.aspx">Cobrador</a></li>
                                 <li><a class="dropdown-item" href="frm_formapago.aspx">Forma de Pago</a></li>
-                                <li><a class="dropdown-item" href="frm_cuentasXcobrar.aspx">Forma de Pago</a></li>
-                                <li><a class="dropdown-item" href="frm_reporteCxc">Compleja </a></li>
+                                <li><a class="dropdown-item" href="frm_cuentasXcobrar.aspx">Cuentas x Cobrar</a></li>
+                                <li><a class="dropdown-item" href="frm_reporteCxc.aspx">Reporte </a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -61,8 +61,19 @@
             <br />
             <div class="row">
                 <div class="col">
+                   
                     <asp:Label runat="server" class="">Numero Factura</asp:Label>
-                    <asp:DropDownList ID="cmb_numeroFact" runat="server" class="form-control" ></asp:DropDownList>
+                   
+                     <div class="row">
+                         <div class="col">
+                         <asp:DropDownList ID="cmb_numeroFact" runat="server" class="form-control" OnSelectedIndexChanged="cmb_numeroFact_SelectedIndexChanged" ></asp:DropDownList>
+                             </div>
+                         <div class="col">
+                         <asp:TextBox ID="txt_id" runat="server" class="form-control" ></asp:TextBox>
+                             </div>
+                     </div>
+                    
+                      
                     <br />
                     <asp:Label runat="server" class="">Cliente</asp:Label>
                      <asp:TextBox ID="txt_Cliente" runat="server" class="form-control" ></asp:TextBox>
